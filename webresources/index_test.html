@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Portada - Grafos de Conocimiento</title>
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- D3.js CDN -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <!-- Tipografía personalizada -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --c0: #440154;
+            --c1: #482878;
+            --c2: #3e4989;
+            --c3: #31688e;
+            --c4: #26828e;
+            --c5: #1f9e89;
+            --c6: #35b779;
+            --c7: #6ece58;
+            --c8: #b5de2b;
+            --primary: var(--c4);
+            --secondary: var(--c2);
+            --accent: var(--c7);
+        }
+
+        body {
+            @apply bg-gray-950 text-slate-100 font-[Poppins] overflow-hidden;
+        }
+
+        .slide {
+            @apply absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out;
+        }
+
+        .active {
+            @apply opacity-100 pointer-events-auto;
+        }
+
+        #graph-portada svg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .node {
+            opacity: 0.85;
+        }
+
+        .link {
+            stroke: rgba(255,255,255,0.08);
+            stroke-width: 1.2;
+        }
+    </style>
+</head>
+<body>
+
+<!-- SLIDE 0: PORTADA -->
+<section id="slide-0" class="slide active flex flex-col items-center justify-center relative overflow-hidden">
+  <!-- Fondo dinámico -->
+  <div id="graph-portada" class="absolute inset-0 z-0"></div>
+
+  <!-- Contenido centrado -->
+  <div class="relative z-10 text-center space-y-6 max-w-3xl px-4">
+    <h1 class="text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-[var(--c6)] via-[var(--c4)] to-[var(--c2)]">
+      Grafos de Conocimiento y Trayectorias Académicas
+    </h1>
+    <h2 class="text-xl font-medium text-slate-200">
+      Análisis interseccional de capital científico en becarios/as CONICYT – BECAS CHILE
+    </h2>
+  </div>
+
+  <!-- Logos -->
+  <div class="absolute bottom-6 left-6 flex items-center space-x-6 z-10">
+    <img src="./assets/img/mds.svg" alt="Logo MDS" class="h-16 opacity-90" />
+    <img src="./assets/img/idia_white.png" alt="Logo IDIA" class="h-12 opacity-90" />
+  </div>
+</section>
+
+<script>
+    // Paleta de colores perceptualmente uniforme (Viridis)
+    const colorScale = d3.scaleSequential()
+        .domain([0, 3])
+        .interpolator(d3.interpolateViridis);
+
+    function commonForces(simulation, w, h) {
+        return simulation
+            .force("charge", d3.forceManyBody().strength(-180))
+            .force("center", d3.forceCenter(w / 2, h / 2))
+            .force("collision", d3.forceCollide().radius(d => d.radius + 3));
+    }
+
+    function initPortadaGraph() {
+        const container = d3.select("#graph-portada");
+        if (!container.empty() && container.select("svg").empty()) {
+            const { width: w, height: h } = container.node().getBoundingClientRect();
+            const svg = container.append("svg")
+                .attr("width", w)
+                .attr("height", h);
+
+            const nodes = d3.range(40).map(i => ({
+                id: i,
+                x: Math.random() * w,
+                y: Math.random() * h,
+                radius: 6 + Math.random() * 6,
+                level: i % 3
+            }));
+
+            const links = d3.range(80).map(() => ({
+                source: Math.floor(Math.random() * nodes.length),
+                target: Math.floor(Math.random() * nodes.length)
+            }));
+
+            svg.append("g")
+                .selectAll("line")
+                .data(links)
+                .enter()
+                .append("line")
+                .attr("class", "link");
+
+            const node = svg.append("g")
+                .selectAll("circle")
+                .data(nodes)
+                .enter()
+                .append("circle")
+                .attr("class", "node")
+                .attr("r", d => d.radius)
+                .attr("fill", d => colorScale(d.level));
+
+            commonForces(
+                d3.forceSimulation(nodes)
+                    .force("link", d3.forceLink(links).distance(80).strength(0.1)),
+                w, h
+            ).on("tick", () => {
+                svg.selectAll("line")
+                    .attr("x1", d => d.source.x)
+                    .attr("y1", d => d.source.y)
+                    .attr("x2", d => d.target.x)
+                    .attr("y2", d => d.target.y);
+
+                node
+                    .attr("cx", d => d.x)
+                    .attr("cy", d => d.y);
+            });
+        }
+    }
+
+    // Ejecutar al cargar
+    document.addEventListener("DOMContentLoaded", initPortadaGraph);
+</script>
+
+</body>
+</html>
+  git config --global user.email "rodmolina@ug.uchile.cl"
+  git config --global user.name "Rodrigo M"
