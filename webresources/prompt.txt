@@ -1,0 +1,53 @@
+Quiero que generes una presentación, donde solo se visualice la pantalla completa con el contenido.
+
+La presentación se titula: Reunión ampliada Fondecyt 11241304.
+Fecha de hoy: 22 septiembre 2025
+
+Criterios para la presentación:
+
+Tiene que ser visualmente estética, que utilice proporciones aureas en el tamaño y diseño de la diapositiva.
+Utiliza propiedades de d3.js, tailwind, y todas las propiedades del framework react para añadir funcionalidades práccticas a la presentación.
+Se tiene que manejar con las flechas izquierda y derecha del teclado el avance o retroceso de las diapositivas.
+Utiliza una paleta de color clara, que tenga una escala tipo "purples" incorporado en parte del diseño.
+
+Te daré la lista de diapositivas y lo que tiene que contener cada una:
+
+Diapositiva 1: Título
+
+Incorpora el nombre de la presentación.
+La Fecha
+el autor: Rodrigo Molina Ávila
+rol: Tesista becario del proyecto.
+
+Incorpora los logos de las entidades en la parte inferior central justificado:
+
+Logo de IDIA: https://raw.githubusercontent.com/RodrigoMolinaAvila/web_resources/refs/heads/main/webresources/idia.png
+Logo del Fondecyt: https://raw.githubusercontent.com/RodrigoMolinaAvila/web_resources/0c17e21552546392fe4110d1a246373fac6f074c/webresources/fond.svg
+
+Diapositiva 2: Investigación.
+
+Esta diapositiva tiene: un cuadro en la parte central izquierda donde se pueda abrir un cuadro html donde se pueda reproducir dentro de la diapositiva esta página: https://rodrigomolinaavila.github.io/presentacion/
+
+Incorpora un cuadro en la parte central derecha que muestre los objetivos de la investigación.
+
+Que son los siguientes:
+
+Objetivo General
+Comprender cómo el posicionamiento interseccional de clase social y género incide en la configuración temática de la producción científica de los/as becarios/as doctorales chilenos/as de disciplinas STEM y Ciencias Sociales, a partir de representaciones estructuradas mediante grafos de conocimiento.
+Objetivos Específicos
+Identificar las entidades, atributos y relaciones relevantes que caracterizan las trayectorias académicas de los/as becarios/as, considerando variables sociodemográficas, institucionales y de producción científica.
+Conocer las formas de asociación entre atributos sociales (clase social, género) y áreas temáticas de investigación, diferenciando las configuraciones disciplinares entre STEM y Ciencias Sociales.
+Explorar las estructuras generadas por los grafos de conocimiento, focalizando en patrones de movilidad, segmentación temática, jerarquización institucional y desigualdad epistémica interseccional.
+
+
+Diapositiva 3: Analisis descriptivo de los datos.
+
+En esta diapositiva en la parte central embede esta referencia de una presentación de powerBI.
+
+<iframe title="Fondecyt - EDA" width="800" height="636" src="https://app.powerbi.com/view?r=eyJrIjoiNzZkZDBjNWUtMWEwNy00OWE0LTk4ZTYtNzgxYTcxMGFmZTJlIiwidCI6IjZmZDQ4ZjQxLWFmODEtNDVhNS05YzFlLWUzOTkwYmMyN2U3YyIsImMiOjR9&pageName=2ded561a6ed1d2783268" frameborder="0" allowFullScreen="true"></iframe>
+Considera el tamaño declarado dentro del iframe para que tenga sentido su posicionamiento dentro de la diapositiva.
+
+Diapositiva 4: Redes
+
+En esta diapositiva se muestra en la parte central la siguiente imágen:
+
