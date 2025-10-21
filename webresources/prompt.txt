@@ -51,3 +51,20 @@ Diapositiva 4: Redes
 
 En esta diapositiva se muestra en la parte central la siguiente imágen:
 
+https://raw.githubusercontent.com/RodrigoMolinaAvila/web_resources/refs/heads/main/webresources/redidia.png
+
+Y en la parte inferior abajo de la imágen, el siguiente enlace:
+
+https://apps.dcc.uchile.cl/pregrado/titulacion/introduccion/temas/628/
+
+Añadir un cuadro con bulletpoints de dos columnas con los siguientes puntos.
+- Hosting y enlace oficial uchile.
+- Plataforma para hacer consultas y visualizaciones de resultados de procesamiento de datos.
+- Desarrollo de backend y frontend.
+- Espacio de publicación de noticias e información.
+
+Diapositiva 4: Gracias!
+
+Solo agrega un gracias! en el centro con los dos logos de idia y fondecyt en la parte inferior del gracias.
+
+Son las mismas referencias que la diapositiva 1.
